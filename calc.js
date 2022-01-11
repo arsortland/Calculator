@@ -1,25 +1,28 @@
 const display = document.querySelector('#display');
+const topdisplay = document.querySelector('#topdisplay');
 const buttons = document.querySelectorAll('button');
 const equals = document.querySelector('.equals');
 const bckspace = document.querySelector('#bck');
 const dot = document.querySelector('#dot');
+const btnoperators = document.querySelectorAll('.oper');
+
 let currentCalc = display.value;
-let doneCalc = undefined;
+let doneCalc = topdisplay.value;
 
 function add(a,b){
-    display.value = (a+b);
+    topdisplay.value = (a+b);
 }
 function subtract(a,b){
-    display.value = (a-b);
+    topdisplay.value = (a-b);
 }
 function multiply(a,b){
-    display.value = (a*b);
+    topdisplay.value = (a*b);
 }
 function divide(a,b){
-    display.value = (a/b);
+    topdisplay.value = (a/b);
 }
 
-function operate(oper, a, b){ //make a and b array for allowing multiple numbers?
+function operate(oper, a, b){
     switch (oper){
         case "+":
             add(a,b);
@@ -44,8 +47,7 @@ function writeToDisplay(){
             disableDot();
         }else{
             display.value += btn.textContent;
-            currentCalc = display.value;
-            console.log(currentCalc);
+            console.log(display.value);
         }
     }));
 }
@@ -64,25 +66,52 @@ function disableDot(){
         dot.disabled = true;
     }else{
         display.value = display.value.concat(".")
+        dot.disabled = true;
     }
 }
 
-function calculate(){                               //need a reaload to clear before displaying result.
-    equals.addEventListener('click',function(){
-        const operato = currentCalc.match(/[+,-,*,/]/g);
-        const calcArr = currentCalc.split(/[+,-,*,/]/g);
-        console.log(operato.toString());
-        console.log(parseFloat(calcArr[0]));
-        console.log(parseFloat(calcArr[1]));
-        console.log(operato);
-        operate(operato.toString(), parseFloat(calcArr[0]), parseFloat(calcArr[1].slice(0, -1)));
+function GotCha(op, n1, n2){
+    if (op === "/" && (n1 === 0 || n2 === 0)){
+        return true;
+    }
+}
 
+function expressionCalc(){
+    btnoperators.forEach(btn => btn.addEventListener('mousedown', () =>{
+        let val = display.value;
+        if (val.includes('+') || val.includes('-') || val.includes('*') || val.includes('/')){
+            calculate();
+        }
+    }));
+}
 
+function equalCalculate(){
+    equals.addEventListener('click', ()=>{
+        calculate();
+        backspace();
     });
+}
+
+function calculate(){  
+        const operato = display.value.match(/[+,\-,*,/]/g);
+        const calcArr = display.value.split(/[+,\-,*,/]/g);
+        let firstnum = parseFloat(calcArr[0]);
+        let secondnum = parseFloat(calcArr[1]);
+        try{
+            if (GotCha(operato.toString(), firstnum, secondnum)){
+                topdisplay.value = "3RR0R! - Can't do that silly!"
+            }else {
+                operate(operato.toString(), firstnum, secondnum);
+            };
+        }
+        catch{
+            ;
+        };
 }
 writeToDisplay();
 clearCalc();
+equalCalculate();
+expressionCalc();
 
-calculate();
 
-
+//parameter that stores the last result and uses it for the next calc?
