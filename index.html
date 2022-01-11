@@ -5,14 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <script type="text/javascript" src="calc.js" defer></script>
+    <title>Basic Calculator</title>
 </head>
 <body>
     <div class="calccontainer">
         <div class="display">
-            <input type="number">
+            <input type="text" id="display">
         </div>
         <div class="clear">
+            <button id="bck">↩︎</button>
             <button id=clr>clr</button>
         </div>
         
@@ -24,47 +26,16 @@
             <button class="num" id="4">4</button>
             <button class="num" id="5">5</button>
             <button class="num" id="6">6</button>
-            <button class="oper" id="multiply">x</button>
+            <button class="oper" id="multiply">*</button>
             <button class="num" id="1">1</button>
             <button class="num" id="2">2</button>
             <button class="num" id="3">3</button>
             <button class="oper" id="subtract">-</button>
             <button class="num" id="0">0</button>
-            <button class="oper">.</button>
+            <button class="oper" id="dot">.</button>
             <button class="equals">=</button>
             <button class="oper" id="add">+</button>
         </div>
     </div>
-    <script>
-        function add(a,b){
-            return a+b;
-        }
-        function subtract(a,b){
-            return a-b;
-        }
-        function multiply(a,b){
-            return a*b;
-        }
-        function divide(a,b){
-            return a/b;
-        }
-
-        function operate(oper, a, b){ //make a and b array for allowing multiple numbers?
-            switch (oper){
-                case "+":
-                    add(a,b);
-                    break;
-                case "-":
-                    subtract(a,b);
-                    break;
-                case "*":
-                    multiply(a,b);
-                    break;
-                case "/":
-                    divide(a,b);
-                    break;
-            }
-        }
-    </script>
 </body>
 </html>

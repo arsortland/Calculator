@@ -39,6 +39,12 @@ input{
     display: grid;
     grid-template-columns: repeat(4, 2fr);
 }
+
+#bck{
+    grid-column-start: 3;
+    background-color: rgb(152, 137, 98);
+}
+
 #clr{
     grid-column-start: 4;
     background-color: rgb(152, 137, 98);
@@ -47,6 +53,7 @@ button{
     color: rgb(211, 209, 209);
     border-radius: 5px;
     padding: 15px;
+    font-size: 25px;
 }
 .buttons{
     display: grid;
