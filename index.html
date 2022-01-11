@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="calccontainer">
+        <div class="display">
+            <input type="number">
+        </div>
+        <div class="clear">
+            <button id=clr>clr</button>
+        </div>
+        
+        <div class="buttons">
+            <button class="num" id="7">7</button>
+            <button class="num" id ="8">8</button>
+            <button class="num" id="9">9</button>
+            <button class="oper" id="divide">/</button>
+            <button class="num" id="4">4</button>
+            <button class="num" id="5">5</button>
+            <button class="num" id="6">6</button>
+            <button class="oper" id="multiply">x</button>
+            <button class="num" id="1">1</button>
+            <button class="num" id="2">2</button>
+            <button class="num" id="3">3</button>
+            <button class="oper" id="subtract">-</button>
+            <button class="num" id="0">0</button>
+            <button class="oper">.</button>
+            <button class="equals">=</button>
+            <button class="oper" id="add">+</button>
+        </div>
+    </div>
+    <script>
+        function add(a,b){
+            return a+b;
+        }
+        function subtract(a,b){
+            return a-b;
+        }
+        function multiply(a,b){
+            return a*b;
+        }
+        function divide(a,b){
+            return a/b;
+        }
+
+        function operate(oper, a, b){ //make a and b array for allowing multiple numbers?
+            switch (oper){
+                case "+":
+                    add(a,b);
+                    break;
+                case "-":
+                    subtract(a,b);
+                    break;
+                case "*":
+                    multiply(a,b);
+                    break;
+                case "/":
+                    divide(a,b);
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>
