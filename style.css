@@ -9,15 +9,40 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+html{
+    display: flex;
+    justify-content: center;
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(21, 123, 123);
+    height: 100vh;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    width: 55vh;
+}
+.title{
+display: flex;
+text-align: center;
+justify-content: center;
+align-items: center;
+}
 
 .calccontainer{
     padding: 50px;
-    padding-top: 100px;
+    padding-top: 50px;
     padding-bottom: 100px;
     background-color: rgb(46, 46, 46);
     display: flex;
     flex-direction: column;
     justify-content: center;
+    height: 55vh;
+    width: 40vh;
+    border-style:groove;
+    border-color: rgb(75, 47, 47);
+    border-width: 25px;
+    border-radius: 25px;
 }
 .display{
     display: flex;
@@ -25,23 +50,31 @@ input[type=number] {
     align-content: center;
     align-items: stretch;
     padding: 20px;
-
+    caret-color: transparent;
 }
 #topdisplay, #display{
     border: 0;
     border-radius: 0;
     text-align: right;
+    cursor: default;
 }
 
 #topdisplay{
     font-size: 35px;
+}
+
+#topdisplay:disabled, #display:disabled{
+    background-color: white;
 }
 input{
     height: 25px;
     border-radius: 5px;
     padding: 15px;
     font-size: 25px;
+}
 
+input:focus, textarea:focus{
+    outline: none;
 }
 
 .clear{
@@ -51,12 +84,12 @@ input{
 
 #bck{
     grid-column-start: 3;
-    background-color: rgb(152, 137, 98);
+    background-color: rgb(145, 131, 102);
 }
 
 #clr{
     grid-column-start: 4;
-    background-color: rgb(152, 137, 98);
+    background-color: rgb(145, 131, 102);
 }
 button{
     color: rgb(211, 209, 209);
@@ -68,6 +101,7 @@ button{
 button:hover, #clr:hover, #bck:hover{
     background-color: rgb(26, 104, 92);
 }
+
 
 .buttons{
     display: grid;
@@ -89,3 +123,23 @@ button:hover, #clr:hover, #bck:hover{
 .equals{
     background-color: rgb(250, 102, 102);
 }
+
+ul{
+    list-style-type: none;
+}
+
+.list{
+    display: flex;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    font-size: 16px;
+  }
