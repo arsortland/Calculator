@@ -27,6 +27,7 @@ display: flex;
 text-align: center;
 justify-content: center;
 align-items: center;
+padding-top: 30px;
 }
 
 .calccontainer{
@@ -38,7 +39,7 @@ align-items: center;
     flex-direction: column;
     justify-content: center;
     height: 55vh;
-    width: 40vh;
+    width: auto;
     border-style:groove;
     border-color: rgb(75, 47, 47);
     border-width: 25px;
@@ -49,7 +50,8 @@ align-items: center;
     flex-direction: column;
     align-content: center;
     align-items: stretch;
-    padding: 20px;
+    padding-bottom: 15px;
+    width: 100%;
     caret-color: transparent;
 }
 #topdisplay, #display{
@@ -60,7 +62,11 @@ align-items: center;
 }
 
 #topdisplay{
-    font-size: 35px;
+    font-size: 2.3vh;
+    color: black;
+}
+#display{
+    color: rgb(111, 108, 108);
 }
 
 #topdisplay:disabled, #display:disabled{
@@ -95,6 +101,7 @@ button{
     color: rgb(211, 209, 209);
     border-radius: 5px;
     padding: 15px;
+    padding-bottom: 5px;
     font-size: 25px;
     transform: 0.5s;
 }
@@ -134,11 +141,12 @@ button:hover, #clr:hover, #bck:hover{
 }
 
 ul{
-    list-style-type: none;
+    list-style-type:circle;
 }
 
 .list{
     display: flex;
+    font-size: 1.3vh;
 }
 
 .footer {

@@ -9,7 +9,10 @@ const btnoperators = document.querySelectorAll('.oper');
 
 function clearCalc(){
     const clear = document.getElementById('clr');
-    clear.addEventListener('click', () => location.reload());
+    clear.addEventListener('click', () => {
+        display.value = "";
+        topdisplay.value = "";
+    });
 }
 
 function backspace(amount = -1){
